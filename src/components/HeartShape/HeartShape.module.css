@@ -1,0 +1,12 @@
+.heartShapeStyling {
+  cursor: pointer;
+  transition: fill 0.3s ease-in-out;
+  fill: none;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 2;
+}
+.heartShapeStyling:hover {
+  fill: black;
+}

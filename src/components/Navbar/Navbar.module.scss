@@ -1,0 +1,72 @@
+@use "../../mixins/mixins" as *;
+.searchWrapper {
+  display: none;
+  @include screen-min-desktop {
+    display: flex;
+  }
+}
+.navbarStyling {
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  background-color: rgb(218, 214, 214);
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  z-index: 100;
+  border-bottom: 1px solid rgb(232, 232, 232);
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.menuImg {
+  margin-left: 0px;
+  margin-right: 32px;
+  cursor: pointer;
+}
+
+.menuImg:hover {
+  cursor: pointer;
+}
+
+.leftStyling {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 200px;
+  button {
+    @include screen-min-desktop {
+      display: none;
+    }
+  }
+}
+
+.rightStyling {
+  @include screen-min-desktop {
+    display: flex;
+    width: 280px;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 5px;
+    position: relative;
+    min-width: 280px;
+  }
+  display: none;
+}
+
+.navbarButton {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  padding: 5px 10px;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  background-color: white;
+  transition: background-color 0.15;
+
+  cursor: pointer;
+}
+
+.navbarButton:hover {
+  background-color: rgb(214, 214, 214);
+}

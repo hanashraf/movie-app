@@ -1,0 +1,31 @@
+@use "../../mixins/mixins" as *;
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.sidebarContent {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sidebarButton {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: left;
+}
