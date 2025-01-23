@@ -4,11 +4,14 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { use } from "react";
 import Loading from "@/components/Loading/Loading";
-import styles from "../../MovieDetails.module.css";
+import styles from "../MovieDetails.module.scss";
 import axios from "axios";
 import { BASE_URL } from "@/constant/endpointsUrl";
 import BackIcon from "@/components/BackIcon/BackIcon";
 import { useRouter } from "next/navigation";
+import { dummyDetails } from "@/constant/endpointsUrl";
+import { TMovie } from "@/types/Movies";
+import Link from "next/link";
 
 type MovieDetailsProps = {
   params: Promise<{
@@ -16,21 +19,9 @@ type MovieDetailsProps = {
   }>;
 };
 
-type DummyDetails = {
-  Actors: string;
-  Director: string;
-  Plot: string;
-};
-
-const dummyDetails: DummyDetails = {
-  Actors: "Chris Pratt, Zoe Saldana, Dave Bautista",
-  Director: "James Gunn",
-  Plot: "A group of intergalactic criminals must pull together to stop a fanatical warrior with plans to purge the universe.",
-};
-
 const MovieDetails: React.FC<MovieDetailsProps> = ({ params }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [movie, setMovie] = useState(null);
+  const [movie, setMovie] = useState<TMovie | null>(null);
   const router = useRouter();
   const { imdbID } = use(params);
 
@@ -62,9 +53,9 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ params }) => {
 
   return (
     <div className={styles.container}>
-      <button onClick={() => router.back()}>
+      <div onClick={() => router.back()}>
         <BackIcon />
-      </button>
+      </div>
       <div className={styles.movieDetails}>
         {movie.Poster !== "N/A" && (
           <Image
@@ -95,13 +86,13 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ params }) => {
           </p>
           <p>
             <strong>More Info:</strong>{" "}
-            <a
+            <Link
               href={`https://www.imdb.com/title/${movie.imdbID}/`}
               target="_blank"
               rel="noopener noreferrer"
             >
               View on IMDb
-            </a>
+            </Link>
           </p>
         </div>
       </div>

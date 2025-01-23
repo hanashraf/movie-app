@@ -21,11 +21,13 @@
 }
 
 .sidebarButton {
-  background-color: #3498db;
+  background-color: rgb(186, 184, 184);
   color: #fff;
   border: none;
   padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
   text-align: left;
+  width: fit-content;
 }

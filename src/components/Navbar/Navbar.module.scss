@@ -35,7 +35,8 @@
   flex-direction: row;
   align-items: center;
   width: 200px;
-  button {
+
+  .removeButton {
     @include screen-min-desktop {
       display: none;
     }
@@ -63,7 +64,6 @@
   border-radius: 5px;
   background-color: white;
   transition: background-color 0.15;
-
   cursor: pointer;
 }
 

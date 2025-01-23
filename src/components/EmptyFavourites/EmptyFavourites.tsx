@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./EmptyFavourites.module.css";
+import styles from "./EmptyFavourites.module.scss";
 import Image from "next/image";
 const EmptyFavourites = () => {
   return (

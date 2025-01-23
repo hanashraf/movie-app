@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./HeartShape.module.css";
+import styles from "./HeartShape.module.scss";
 
 const FilledHeart = () => {
   return (

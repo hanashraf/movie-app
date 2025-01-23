@@ -33,9 +33,7 @@ const Movies = () => {
 
         const response = await axios.get(`${BASE_URL}&s=${query}`);
 
-        console.log(`${BASE_URL}&s=${query}`);
         if (response.data.Response === "True") {
-          console.log(response.data.Search);
           setMovies(response.data.Search);
           setEmptyState(false);
           setLoading(false);

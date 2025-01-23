@@ -1,32 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Introduction to My Project
 
-## Project Summary
+This project is a movie app featuring four main pages: Home, Movie Details, Movie List, and Favourites. Here's a quick overview of its functionality:
 
-## Getting Started
+Navigation Bar:
+Appears on all pages.
 
-First, run the development server:
+Clicking on the StarStack logo redirects users to the Home page.
 
-```bash
-bun dev
-```
+The Favourites icon navigates users to the Favourites page, where their favourite movies are stored.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Home Page:
+Users can search for movies by entering at least three characters in the search bar. They can either press the magnifier icon or hit Enter to initiate the search, which takes them to the Movie List page.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Movie List Page:
+Displays search results. Users can:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Click on a movie to view more details.
 
-## Learn More
+Add or remove movies from their favourites.
 
-To learn more about Next.js, take a look at the following resources:
+Favourites Page:
+Users can view their favourite movies and remove any they no longer wish to keep.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Responsive Design:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+In mobile view, a there is a menu bar accessing Favourites and the search bar.
+Language localization is not applied; a placeholder button is included for design purposes.
 
-## Deploy on Vercel
+## Instructions on how to install and run application locally
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+0)install bun first
+1)bun create next-app [To create app]
+2)bun --bun run dev [To run dev server]
+3)Open http://localhost:3000 with your browser to see the result
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Design Decisions, Challenges Faced, and Solutions
+
+Component Tree and State Management:
+Challenge: Determining how to structure the component tree and manage states efficiently.
+Solution:
+Used Zustand for global state management when multiple components needed to share the same state.
+Used the useState hook and props for localized state management within specific components.
+These decisions helped balance simplicity and scalability in the app's architecture.

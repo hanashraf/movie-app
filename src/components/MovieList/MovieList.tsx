@@ -1,3 +1,4 @@
+"use client";
 import MovieCard from "../MovieCard/MovieCard";
 import useFavouriteStore from "@/stores/FavouritesStore";
 import { TMovie } from "@/types/Movies";
@@ -32,8 +33,6 @@ function MovieList({ renderMovies }: MovieListProps) {
 
     saveFavoritesToLocalStorage(updatedFavorites);
   };
-
-  console.log(favorites);
 
   return (
     <div className={styles.movieListContainer}>

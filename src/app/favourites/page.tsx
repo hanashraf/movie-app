@@ -9,16 +9,14 @@ const Favourites = () => {
   const favorites = useFavouriteStore((state) => state.favorites);
   const router = useRouter();
 
-  console.log(favorites.length);
-
   if (favorites.length === 0) {
     return <EmptyFavourites />;
   }
   return (
     <>
-      <button onClick={() => router.back()}>
+      <div onClick={() => router.back()}>
         <BackIcon />
-      </button>
+      </div>
       <MovieList renderMovies={favorites} />
       );
     </>

@@ -3,9 +3,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80vh;
-  font-family: serif;
+  min-height: 80vh;
+  font-family: "Montserrat", sans-serif;
   font-weight: bold;
   text-align: center;
   margin: 0;
+  gap: 2rem;
 }

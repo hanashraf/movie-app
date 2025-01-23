@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./ErrorState.module.css";
+import styles from "./ErrorState.module.scss";
 import Image from "next/image";
 const ErrorState = () => {
   return (

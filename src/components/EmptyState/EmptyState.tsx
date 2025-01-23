@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./EmptyState.module.css";
+import styles from "./EmptyState.module.scss";
 import Image from "next/image";
 const EmptyState = () => {
   return (

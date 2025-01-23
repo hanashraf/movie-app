@@ -22,7 +22,8 @@ const Navbar = () => {
     <>
       <nav className={styles.navbarStyling}>
         <div className={styles.leftStyling}>
-          <button
+          <div
+            className={styles.removeButton}
             onClick={() => {
               setIsMenu(true);
             }}
@@ -34,7 +35,7 @@ const Navbar = () => {
               width={25}
               height={25}
             />
-          </button>
+          </div>
 
           <div />
           <div className={playfair_Display.className}>

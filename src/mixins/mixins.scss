@@ -1,7 +1,6 @@
 $screen-min-md: 992px;
 
 @mixin screen-min-desktop {
-  // must be 992 = small desktop
   @media (min-width: #{$screen-min-md}) {
     @content;
   }

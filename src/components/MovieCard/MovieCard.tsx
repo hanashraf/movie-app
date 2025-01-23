@@ -33,16 +33,13 @@ function MovieCard({
       className={styles.container}
       onClick={() => {
         onClick();
-        console.log(`Navigating to details of ${movie.Title}`);
       }}
       role="link"
       tabIndex={0}
     >
       <div className={styles.movieCard}>
         <Image
-          src={
-            movie.Poster !== "N/A" ? movie.Poster : "/placeholder.png" // Path to your placeholder image
-          }
+          src={movie.Poster !== "N/A" ? movie.Poster : "/placeholder.png"}
           alt={movie.Title}
           width={200}
           height={200}

@@ -31,10 +31,10 @@ const Search: React.FC<TProps> = ({ placeholder, isMenu }) => {
 
     if (value.length >= 3) {
       setQuery(value);
-      localStorage.setItem("searchQuery", value); // Save to localStorage
+      localStorage.setItem("searchQuery", value);
     } else {
       setQuery("");
-      localStorage.removeItem("searchQuery"); // Clear from localStorage
+      localStorage.removeItem("searchQuery");
     }
   };
 
