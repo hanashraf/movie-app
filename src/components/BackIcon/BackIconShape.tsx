@@ -1,9 +1,8 @@
 import React from "react";
-import styles from "./BackIconShape.module.scss";
 
 const BackIconShape = () => {
   return (
-    <div className={styles.BackIcon}>
+    <div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="32"

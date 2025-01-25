@@ -38,13 +38,16 @@ function MovieCard({
       tabIndex={0}
     >
       <div className={styles.movieCard}>
-        <Image
-          src={movie.Poster !== "N/A" ? movie.Poster : "/placeholder.png"}
-          alt={movie.Title}
-          width={200}
-          height={200}
-          priority
-        />
+        <div>
+          <Image
+            src={movie.Poster !== "N/A" ? movie.Poster : "/placeholder.png"}
+            alt={movie.Title}
+            width={200}
+            height={200}
+            priority
+          />
+        </div>
+
         <div className={styles.details}>
           <h3>{movie.Title}</h3>
           <div className={styles.movieTitle}>Type: {movie.Type}</div>

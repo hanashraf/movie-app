@@ -14,20 +14,21 @@ const Movies = () => {
   const setMovies = useMovieStore((state) => state.setMovies);
   const { query } = useQueryStore();
 
-  const [loading, setLoading] = useState(true);
-  const [errorState, setErrorState] = useState(false);
-  const [emptyState, setEmptyState] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isErrorState, setIsErrorState] = useState(false);
+  const [isEmptyState, setIsEmptyState] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
   useEffect(() => {
     const fetchMovies = async (query: string) => {
-      setLoading(true);
-      setErrorState(false);
-      setEmptyState(false);
+      setIsLoading(true);
+      setIsErrorState(false);
+      setIsEmptyState(false);
       try {
         if (!query.trim()) {
-          setEmptyState(true);
+          setIsEmptyState(true);
           setMovies([]);
-          setLoading(false);
+          setIsLoading(false);
           return;
         }
 
@@ -35,26 +36,30 @@ const Movies = () => {
 
         if (response.data.Response === "True") {
           setMovies(response.data.Search);
-          setEmptyState(false);
-          setLoading(false);
+          setIsEmptyState(false);
+          setIsLoading(false);
         } else {
-          setEmptyState(true);
+          setIsEmptyState(true);
           setMovies([]);
-          setLoading(false);
+          setIsLoading(false);
         }
       } catch (error) {
-        console.error(error);
-        setErrorState(true);
+        if (error instanceof Error) {
+          setIsErrorState(true);
+          setErrorMessage(error.message);
+        }
         setMovies([]);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchMovies(query);
   }, [query, setMovies]);
 
-  if (loading) return <Loading />;
-  if (errorState) return <ErrorState />;
-  if (emptyState) return <EmptyState />;
+  if (isLoading) return <Loading />;
+  if (isErrorState) return <ErrorState errorType={errorMessage} />;
+  if (isEmptyState) return <EmptyState />;
 
   return <MovieList renderMovies={movies} />;
 };
