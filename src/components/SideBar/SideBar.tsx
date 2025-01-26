@@ -18,7 +18,7 @@ const SideBar = ({ onClose }: TProps) => {
         <Link href="/favourites">
           <button className={styles.sidebarButton}>Favourites</button>
         </Link>
-        <button className={styles.sidebarButton}>En|Ar</button>
+        <button className={styles.sidebarButton}>Watchlist</button>
       </div>
     </div>
   );

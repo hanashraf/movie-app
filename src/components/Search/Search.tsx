@@ -13,36 +13,52 @@ type TProps = {
 };
 
 const Search: React.FC<TProps> = ({ placeholder, isMenu }) => {
-  const [searchValue, setSearchValue] = useState<string>("");
+  const [debouncedQuery, setDebouncedQuery] = useState<string>("");
   const setQuery = useQueryStore((state) => state.setQuery);
+  const query = useQueryStore((state) => state.query);
   const router = useRouter();
 
   useEffect(() => {
-    const storedQuery = localStorage.getItem("searchQuery");
+    const storedQuery = sessionStorage.getItem("searchQuery");
     if (storedQuery) {
-      setSearchValue(storedQuery);
       setQuery(storedQuery);
+      router.replace("/movies");
     }
-  }, [setQuery]);
+  }, [setQuery, router]);
 
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setSearchValue(value);
+  useEffect(() => {
+    if (query.length === 0) {
+      setQuery("");
+      return;
+    }
 
-    if (value.length >= 3) {
-      setQuery(value);
-      localStorage.setItem("searchQuery", value);
+    const delay = query.length < 4 ? 600 : 300;
+    const handler = setTimeout(() => {
+      setDebouncedQuery(query);
+    }, delay);
+
+    return () => clearTimeout(handler);
+  }, [setQuery, query]);
+
+  useEffect(() => {
+    if (debouncedQuery.length >= 0) {
+      setQuery(debouncedQuery);
+      sessionStorage.setItem("searchQuery", debouncedQuery);
     } else {
       setQuery("");
-      localStorage.removeItem("searchQuery");
+      sessionStorage.removeItem("searchQuery");
     }
+  }, [debouncedQuery, setQuery]);
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(e.target.value);
+    const newUrl = `/movies?query=${e.target.value}`;
+    router.push(newUrl);
   };
 
   const handleSearch = () => {
-    if (searchValue.length >= 3) {
-      setQuery(searchValue);
-      router.push("/movies");
-    }
+    router.push(`/movies?query=${query}`);
+    console.log(query);
   };
 
   return (
@@ -51,7 +67,7 @@ const Search: React.FC<TProps> = ({ placeholder, isMenu }) => {
         type="text"
         placeholder={placeholder}
         className={styles.searchBar}
-        value={searchValue}
+        value={query}
         onChange={handleSearchChange}
         onKeyDown={(e) => {
           if (e.key === "Enter") {

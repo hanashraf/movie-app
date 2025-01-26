@@ -70,3 +70,26 @@
 .navbarButton:hover {
   background-color: rgb(214, 214, 214);
 }
+
+.favouritesWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.favouritesCount {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  font-size: 13px;
+  font-weight: bold;
+  color: white;
+  background-color: black;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

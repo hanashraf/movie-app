@@ -9,7 +9,6 @@ import { TMovie } from "@/types/Movies";
 import Link from "next/link";
 import ErrorState from "@/components/ErrorState/ErrorState";
 
-// Fetch movie details from the API
 async function getMovieDetails(
   imdbID: string
 ): Promise<{ movie: TMovie | null; error?: string }> {

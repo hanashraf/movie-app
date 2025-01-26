@@ -12,7 +12,7 @@ import useQueryStore from "@/stores/QueryStore";
 const Movies = () => {
   const movies = useMovieStore((state) => state.movies);
   const setMovies = useMovieStore((state) => state.setMovies);
-  const { query } = useQueryStore();
+  const query = useQueryStore((state) => state.query);
 
   const [isLoading, setIsLoading] = useState(false);
   const [isErrorState, setIsErrorState] = useState(false);
@@ -60,7 +60,6 @@ const Movies = () => {
   if (isLoading) return <Loading />;
   if (isErrorState) return <ErrorState errorType={errorMessage} />;
   if (isEmptyState) return <EmptyState />;
-
   return <MovieList renderMovies={movies} />;
 };
 
