@@ -14,15 +14,36 @@ const Home = () => {
   const [topRatedMovies, setTopRatedMovies] = useState<TCardListing[]>([]);
   const [upcomingMovies, setUpcomingMovies] = useState<TCardListing[]>([]);
 
-  useFetchMovies(BASE_NOW_PLAYING_URL, setNowPlayingMovies);
-  useFetchMovies(BASE_TOP_RATED_URL, setTopRatedMovies);
-  useFetchMovies(BASE_UPCOMING_URL, setUpcomingMovies);
+  const { loading: nowPlayingLoading } = useFetchMovies(
+    BASE_NOW_PLAYING_URL,
+    setNowPlayingMovies
+  );
+  const { loading: topRatedLoading } = useFetchMovies(
+    BASE_TOP_RATED_URL,
+    setTopRatedMovies
+  );
+  const { loading: upcomingLoading } = useFetchMovies(
+    BASE_UPCOMING_URL,
+    setUpcomingMovies
+  );
 
   return (
     <>
-      <CardListing movies={nowPlayingMovies} text="Now Playing" />
-      <CardListing movies={topRatedMovies} text="Top Rated" />
-      <CardListing movies={upcomingMovies} text="Upcoming Movies" />
+      <CardListing
+        movies={nowPlayingMovies}
+        text="Now Playing"
+        loading={nowPlayingLoading}
+      />
+      <CardListing
+        movies={topRatedMovies}
+        text="Top Rated"
+        loading={topRatedLoading}
+      />
+      <CardListing
+        movies={upcomingMovies}
+        text="Upcoming"
+        loading={upcomingLoading}
+      />
     </>
   );
 };

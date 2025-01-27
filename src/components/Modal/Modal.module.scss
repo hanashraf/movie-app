@@ -1,41 +1,53 @@
+$modal-overlay-bg: rgba(0, 0, 0, 0.6);
+$modal-bg: #f7f7f7;
+$modal-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+$modal-border-radius: 12px;
+$modal-padding: 25px;
+$modal-max-width: 450px;
+$modal-width: 90%;
+$close-button-size: 1.5rem;
+$close-button-color: #555;
+$close-button-hover-color: #000;
+$z-index-modal: 1000;
+
 .modalOverlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6); // Darker background for better focus
+  background-color: $modal-overlay-bg;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
-}
+  z-index: $z-index-modal;
 
-.modalContent {
-  background: #f7f7f7; // Light gray for the modal background
-  border-radius: 12px; // Slightly more rounded corners
-  padding: 25px;
-  width: 90%;
-  max-width: 450px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); // Stronger shadow for depth
-  display: flex;
-  flex-direction: column;
-  gap: 15px; // Add spacing between children
-  color: #333; // Dark gray for text color
-}
+  .modalContent {
+    background: $modal-bg;
+    border-radius: $modal-border-radius;
+    padding: $modal-padding;
+    width: $modal-width;
+    max-width: $modal-max-width;
+    box-shadow: $modal-shadow;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: #333;
 
-.closeButton {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: #555; // Neutral close button color
-  cursor: pointer;
-  transition: color 0.2s;
+    .closeButton {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: $close-button-size;
+      color: $close-button-color;
+      cursor: pointer;
+      transition: color 0.2s;
 
-  &:hover {
-    color: #000; // Darken on hover
+      &:hover {
+        color: $close-button-hover-color;
+      }
+    }
   }
 }

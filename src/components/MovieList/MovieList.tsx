@@ -4,12 +4,9 @@ import useFavouriteStore from "@/stores/FavouritesStore";
 import { TMovie } from "@/types/Movies";
 import { useRouter } from "next/navigation";
 import styles from "./MovieList.module.scss";
+import TMovieListProps from "@/types/MovieListProps";
 
-type MovieListProps = {
-  renderMovies: TMovie[];
-};
-
-function MovieList({ renderMovies }: MovieListProps) {
+function MovieList({ renderMovies }: TMovieListProps) {
   const router = useRouter();
 
   const favorites = useFavouriteStore((state) => state.favorites);

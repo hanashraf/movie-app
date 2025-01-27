@@ -1,5 +1,6 @@
+$logo-font-size: 25px;
 .logoStyling {
-  font-size: 25px;
+  font-size: $logo-font-size;
   white-space: nowrap;
   cursor: pointer;
   color: black;

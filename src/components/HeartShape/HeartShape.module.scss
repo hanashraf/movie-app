@@ -1,12 +1,19 @@
+$heart-size: 24px;
+$heart-hover-fill: black;
+$transition-speed: 0.3s;
+$heart-position: 10px;
+$z-index-top: 2;
+
 .heartShapeStyling {
   cursor: pointer;
-  transition: fill 0.3s ease-in-out;
+  transition: fill $transition-speed ease-in-out;
   fill: none;
   position: absolute;
-  bottom: 10px;
-  right: 10px;
-  z-index: 2;
-}
-.heartShapeStyling:hover {
-  fill: black;
+  bottom: $heart-position;
+  right: $heart-position;
+  z-index: $z-index-top;
+
+  &:hover {
+    fill: $heart-hover-fill;
+  }
 }

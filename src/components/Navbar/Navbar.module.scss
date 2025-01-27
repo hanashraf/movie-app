@@ -1,38 +1,50 @@
+$bg-color-navbar: rgb(218, 214, 214);
+$bg-color-button-hover: rgb(214, 214, 214);
+$border-color: rgb(232, 232, 232);
+$border-radius: 5px;
+$font-family: Arial, Helvetica, sans-serif;
+$font-weight-bold: bold;
+$font-size-small: 13px;
+$white-color: white;
+$black-color: black;
+
 @use "../../mixins/mixins" as *;
+
 .searchWrapper {
   display: none;
+
   @include screen-min-desktop {
     display: flex;
   }
 }
+
 .navbarStyling {
   display: flex;
   justify-content: space-between;
   height: 80px;
-  background-color: rgb(218, 214, 214);
+  background-color: $bg-color-navbar;
   position: fixed;
-  left: 0px;
-  right: 0px;
-  top: 0px;
+  left: 0;
+  right: 0;
+  top: 0;
   z-index: 100;
-  border-bottom: 1px solid rgb(232, 232, 232);
+  border-bottom: 1px solid $border-color;
   padding-left: 50px;
   padding-right: 50px;
 }
 
 .menuImg {
-  margin-left: 0px;
+  margin-left: 0;
   margin-right: 32px;
   cursor: pointer;
-}
 
-.menuImg:hover {
-  cursor: pointer;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .leftStyling {
   display: flex;
-  flex-direction: row;
   align-items: center;
   width: 200px;
 
@@ -44,6 +56,8 @@
 }
 
 .rightStyling {
+  display: none;
+
   @include screen-min-desktop {
     display: flex;
     width: 280px;
@@ -53,22 +67,21 @@
     position: relative;
     min-width: 280px;
   }
-  display: none;
 }
 
 .navbarButton {
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
+  font-family: $font-family;
+  font-weight: $font-weight-bold;
   padding: 5px 10px;
   border: 1px solid rgb(0, 0, 0);
-  border-radius: 5px;
-  background-color: white;
-  transition: background-color 0.15;
+  border-radius: $border-radius;
+  background-color: $white-color;
+  transition: background-color 0.15s;
   cursor: pointer;
-}
 
-.navbarButton:hover {
-  background-color: rgb(214, 214, 214);
+  &:hover {
+    background-color: $bg-color-button-hover;
+  }
 }
 
 .favouritesWrapper {
@@ -82,10 +95,10 @@
   position: absolute;
   top: -8px;
   right: -10px;
-  font-size: 13px;
-  font-weight: bold;
-  color: white;
-  background-color: black;
+  font-size: $font-size-small;
+  font-weight: $font-weight-bold;
+  color: $white-color;
+  background-color: $black-color;
   border-radius: 50%;
   width: 20px;
   height: 20px;

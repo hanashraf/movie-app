@@ -1,15 +1,24 @@
+$sidebar-bg-color: rgb(186, 184, 184);
+$sidebar-button-radius: 5px;
+$sidebar-button-padding: 10px 15px;
+$sidebar-font-family: Arial, Helvetica, sans-serif;
+$close-button-font-size: 24px;
+$gap-large: 20px;
+$gap-medium: 15px;
+$white-color: #fff;
+
 @use "../../mixins/mixins" as *;
 
 .sidebar {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: $gap-large;
 }
 
 .closeButton {
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: $close-button-font-size;
   cursor: pointer;
   align-self: flex-end;
 }
@@ -17,17 +26,17 @@
 .sidebarContent {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: $gap-medium;
 }
 
 .sidebarButton {
-  background-color: rgb(186, 184, 184);
-  color: #fff;
+  background-color: $sidebar-bg-color;
+  color: $white-color;
   border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
+  padding: $sidebar-button-padding;
+  border-radius: $sidebar-button-radius;
   cursor: pointer;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: $sidebar-font-family;
   text-align: left;
   width: fit-content;
 }

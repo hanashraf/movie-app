@@ -1,51 +1,63 @@
+$border-color: #ccc;
+$border-radius: 5px;
+$box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+$hover-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+$transition-speed: 0.3s;
+$max-width: 375px;
+$min-width: 375px;
+$padding: 1rem;
+$gap: 1rem;
+$font-family: "Montserrat", sans-serif;
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   margin: 0 auto;
-  gap: 1rem;
-}
+  gap: $gap;
 
-.movieCard {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1rem;
-  max-width: 375px;
-  min-width: 375px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 1;
-  position: relative;
-}
+  .movieCard {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: $padding;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    margin-bottom: $gap;
+    max-width: $max-width;
+    min-width: $min-width;
+    transition: transform $transition-speed ease,
+      box-shadow $transition-speed ease;
+    z-index: 1;
+    position: relative;
 
-.movieCard:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-}
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: $hover-box-shadow;
+      cursor: pointer;
+    }
 
-.movieCard img {
-  object-fit: contain;
-  margin-right: 1rem;
-}
+    img {
+      object-fit: contain;
+      margin-right: $gap;
+    }
 
-.movieCard .details {
-  flex-grow: 1;
-}
+    .details {
+      flex-grow: 1;
+    }
 
-.movieCard h3 {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  font-family: Arial, Helvetica, sans-serif;
-}
+    h3 {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      font-family: $font-family;
+    }
+  }
 
-.movieTitle {
-  text-transform: capitalize;
-  font-family: Arial, Helvetica, sans-serif;
+  .movieTitle {
+    text-transform: capitalize;
+    font-family: $font-family;
+  }
 }

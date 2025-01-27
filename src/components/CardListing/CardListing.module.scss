@@ -1,53 +1,64 @@
+$white: #fff;
+$black: #000;
+$gray-light: #ccc;
+$gray-dark: rgba(0, 0, 0, 0.1);
+$gray-dark-hover: rgba(0, 0, 0, 0.2);
+$primary-font: "Montserrat", sans-serif;
+$button-radius: 20px;
+$card-radius: 12px;
+$transition-speed: 0.3s;
+
 .movieCard {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: $white;
+  border-radius: $card-radius;
+  box-shadow: 0 4px 6px $gray-dark;
   padding: 15px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform $transition-speed ease,
+    box-shadow $transition-speed ease;
   width: 220px;
   height: 400px;
-  font-family: "Montserrat", sans-serif;
+  font-family: $primary-font;
   position: relative;
-}
 
-.movieCard:hover {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-}
+  &:hover {
+    box-shadow: 0 6px 12px $gray-dark-hover;
+    cursor: pointer;
+  }
 
-.movieImage {
-  object-fit: cover;
-}
+  .movieImage {
+    object-fit: cover;
+  }
 
-.movieTitle {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 10px 0;
-}
+  .movieTitle {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
 
-.movieRating {
-  font-size: 14px;
-  color: #000000;
-  margin-bottom: 10px;
-}
+  .movieRating {
+    font-size: 14px;
+    color: $black;
+    margin-bottom: 10px;
+  }
 
-.watchlistButton {
-  background-color: #000;
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 8px 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+  .watchlistButton {
+    background-color: $black;
+    color: $white;
+    border: none;
+    border-radius: $button-radius;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color $transition-speed ease;
 
-.watchlistButton:hover {
-  background-color: #333;
+    &:hover {
+      background-color: darken($black, 10%);
+    }
+  }
 }
 
 .swiperSlide {
@@ -55,12 +66,45 @@
   justify-content: center;
 }
 
-.title {
-  padding-left: 40px;
-}
-
 .heartIconStyling {
+  position: absolute;
   right: 10px;
   bottom: 18px;
-  position: absolute;
+}
+
+.skeletonImage {
+  width: 200px;
+  height: 300px;
+  background-color: $gray-light;
+  border-radius: 8px;
+  animation: shimmer 1.5s infinite linear;
+}
+
+.skeletonText {
+  width: 150px;
+  height: 20px;
+  background-color: $gray-light;
+  margin: 10px 0;
+  border-radius: 4px;
+  animation: shimmer 1.5s infinite linear;
+}
+
+.skeletonButton {
+  width: 100px;
+  height: 30px;
+  background-color: $gray-light;
+  border-radius: 4px;
+  animation: shimmer 1.5s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
 }
